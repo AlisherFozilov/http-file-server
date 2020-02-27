@@ -6,6 +6,7 @@ import (
 	"net"
 	"strings"
 	"testing"
+	"time"
 )
 
 func Test_server(t *testing.T) {
@@ -15,6 +16,7 @@ func Test_server(t *testing.T) {
 			t.Fatalf("can't start server: %v", err)
 		}
 	}()
+	time.Sleep(1_000_000_000)
 	conn, err := net.Dial("tcp", "localhost:9999")
 	if err != nil {
 		t.Fatalf("can't connect to server: %v", err)
